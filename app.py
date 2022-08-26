@@ -2,6 +2,8 @@ from flask import render_template, url_for, request
 
 from models import db, Portfolio, app
 
+import os
+
 
 
 
@@ -44,11 +46,15 @@ if __name__ == '__main__':
     #add_project()
     #app.run(debug=True, port=8000, host='127.0.0.1')
 
-    file = open('Projects/old_app.py', 'a')
-    filer = open('/Users/danielmulatarancon1/Desktop/TECHDEGREE Projects/Python-Techdegree-Project-04/app.py')
-    for row in filer:
-        file.write(row)
-        break
+
+#FUNCTION TO ADD FILES
+
+    #file = open('Projects/old_app.txt', 'a')
+    #filer = open('/Users/danielmulatarancon1/Desktop/TECHDEGREE Projects/Python-Techdegree-Project-04/app.py')
+    #for row in filer:
+        #file.write(row)
+        #break
+    #os.remove('Projects/old_app.txt')
 
 
 
