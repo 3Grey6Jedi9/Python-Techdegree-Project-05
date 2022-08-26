@@ -49,12 +49,24 @@ if __name__ == '__main__':
 
 #FUNCTION TO ADD FILES
 
-    #file = open('Projects/old_app.txt', 'a')
-    #filer = open('/Users/danielmulatarancon1/Desktop/TECHDEGREE Projects/Python-Techdegree-Project-04/app.py')
-    #for row in filer:
-        #file.write(row)
-        #break
+    file = open('Projects/old_app.txt', 'a')
+    filer = open('/Users/danielmulatarancon1/Desktop/TECHDEGREE Projects/Python-Techdegree-Project-04/app.py')
+    for row in filer:
+        file.write(row)
+        break
     #os.remove('Projects/old_app.txt')
+
+    string = ''
+    filerr = open('Projects/old_app.txt')
+    for row in filerr:
+        string += row
+
+    print(string)
+    print(type(string))
+
+    #This is goint to be how  I will access the data and store in as TEXT into the database
+
+
 
 
 
