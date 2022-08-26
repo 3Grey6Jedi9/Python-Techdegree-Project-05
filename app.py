@@ -33,6 +33,8 @@ def delete():
 
 if __name__ == '__main__':
     db.create_all()
+    n_projects = input('How many projects do you want to add to the database?')
+    #while loop and I add all the projects to the database
     app.run(debug=True, port=8000, host='127.0.0.1')
 
 
