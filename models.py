@@ -10,12 +10,14 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///portfolio.db'
 db = SQLAlchemy(app)
 
 
+
 class Project(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column('Title', db.String())
     description = db.Column('Description', db.Text())
     skills_practiced = db.Column('Skills Practiced', db.Text())
     github_link = db.Column('Github Link', db.String())
+    main_app = db.Column('Main App', db.Text())
 
 
 
@@ -26,6 +28,9 @@ class Portfolio(db.Model):
 
     def __repr__(self):
         return f'''< Portfolio (Name: {self.name})'''
+
+
+
 
 
 
