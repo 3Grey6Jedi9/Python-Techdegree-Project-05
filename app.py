@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 
 
 app = Flask(__name__)
@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return 'Hello from Great Cats'
+    return render_template('index.html')
 
 @app.route('/projects/new')
 def new():
@@ -18,7 +18,7 @@ def detail():
 
 @app.route('/projects/<id>/edit')
 def edit():
-    return:"EDIT YOUR CAT"
+    return "EDIT YOUR CAT"
 
 @app.route('/projects/<id>/delete')
 def delete():
