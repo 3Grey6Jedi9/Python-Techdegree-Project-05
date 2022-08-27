@@ -51,7 +51,7 @@ def add_project():
         else:
             i = 0
             while i < n_projects:
-                title = input(f'Enter the title of the project {i+1} please: ')
+                title = input(f'Enter the title of the project nº{i+1} please: ')
                 description = input('Enter a brief description of your project: ')
                 skills_practiced = input('Would you be so kind to tell me which skills did you practice? ')
                 github_link = input('Now I will need to enter the Github link associated to your project: ')
