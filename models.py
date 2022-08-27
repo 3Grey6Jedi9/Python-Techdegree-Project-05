@@ -18,6 +18,19 @@ class Project(db.Model):
     skills_practiced = db.Column('Skills Practiced', db.Text())
     github_link = db.Column('Github Link', db.String())
     main_app = db.Column('Main App', db.Text())
+    extra_file01 = db.Column('Extra File 01', db.Text())
+    extra_file02 = db.Column('Extra File 02', db.Text())
+    extra_file03 = db.Column('Extra File 03', db.Text())
+
+    def __repr__(self):
+        return f'''< Project (Title: {self.title}
+        Description: {self.description}
+        Skills Practiced: {self.skills_practiced}
+        Github Link: {self.github_link}
+        Main App: {self.main_app}
+        Extra File 01: {self.extra_file01}
+        Extra File 02: {self.extra_file02}
+        Extra File 03: {self.extra_file03})'''
 
 
 
