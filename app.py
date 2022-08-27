@@ -53,8 +53,28 @@ def add_project():
         path = input('Now I will need the path of the main app of your project: ')
         main_app = get_file(path)
         i += 1
+        extra_files = input('How many extra files are associated with the project? ')
+        extra_file01 = ''
+        extra_file02 = ''
+        extra_file03 = ''
+        j = 0
+        while j < extra_files:
+            path = input('Tell me the path of this new extra file please: ')
+            if j == 0:
+                extra_file01 = get_file(path)
+                j += 1
+            elif j == 1:
+                extra_file02 = get_file(path)
+                j += 1
+            elif j == 2:
+                extra_file03 = get_file(path)
+                j += 1
+            else:
+                print('I am sorry the app it is not configurated for that many extra files. Changes will have to be made')
+
         new_project = Project(title=title, description=description, skills_practiced=skills_practiced,
-                              github_link=github_link, main_app=main_app)
+                              github_link=github_link, main_app=main_app, extra_file01=extra_file01,
+                              extra_file02=extra_file02, extra_file03=extra_file03)
         db.session.add(new_project)
     print('ok we are donde let is commit the data')
     db.session.commit()
@@ -70,9 +90,13 @@ def add_project():
 
 
 if __name__ == '__main__':
-    db.create_all()
-    add_project()
+    #db.create_all()
+    #add_project()
     #app.run(debug=True, port=8000, host='127.0.0.1')
+
+
+    for p in Project.query:
+        print(p)
 
 
 
