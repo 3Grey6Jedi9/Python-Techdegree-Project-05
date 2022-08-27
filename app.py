@@ -38,7 +38,6 @@ def get_file(path):
     return string
 
 
-
 # MANAGE ERRORS
 
 
@@ -58,13 +57,19 @@ def add_project():
                     try:
                         github_link = input('Enter the Github link associated to your project: ')
                         if 'https://github.com/' not in github_link or 'https' != github_link[:5]:
-                            raise ValueError('I do not think that is a Github link, please try again')
+                            raise ValueError('\nI do not think that is a Github link, please try again\n')
                     except ValueError as err:
-                        print(f'{err}')
+                        print(f'\n{err}\n')
                     else:
                         break
-                path = input('Now I will need the path of the main app of your project: ')
-                main_app = get_file(path)
+                while FileNotFoundError:
+                    path = input('Enter the path of the main app of your project: ')
+                    try:
+                        main_app = get_file(path)
+                    except FileNotFoundError:
+                        print('\nPlease enter a valid path, the file could not be found\n')
+                    else:
+                        break
                 i += 1
                 extra_files = int(input('How many extra files are associated with the project? '))
                 extra_file01 = ''
@@ -72,7 +77,7 @@ def add_project():
                 extra_file03 = ''
                 j = 0
                 while j < extra_files:
-                    path = input(f'Tell me the path of this new extra nº {j+1} file please: ')
+                    path = input(f'Tell me the path of this new extra nº{j+1} file please: ')
                     if j == 0:
                         extra_file01 = get_file(path)
                         j += 1
@@ -90,8 +95,12 @@ def add_project():
                                       extra_file02=extra_file02, extra_file03=extra_file03)
                 db.session.add(new_project)
             break
-    print('ok we are done let is commit the data')
-    db.session.commit()
+    print('Ok we are done, let is commit the data!')
+    commit = input("Are you sure do you want to commit the new changes (Enter 'No' to cancel)? " ).lower()
+    if commit != 'no':
+        db.session.commit()
+    else:
+        exit()
 
 
 
