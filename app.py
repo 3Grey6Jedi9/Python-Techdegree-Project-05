@@ -43,46 +43,50 @@ def get_file(path):
 
 
 def add_project():
-    n_projects = int(input('How many projects do you want to add to the database? '))
-    i = 0
-    while i < n_projects:
-        title = input('Enter the title of the project please: ')
-        description = input('Enter a brief description of your project: ')
-        skills_practiced = input('Would you be so kind to tell me which skills did you practice? ')
-        github_link = input('Now I will need to enter the Github link associated to your project: ')
-        path = input('Now I will need the path of the main app of your project: ')
-        main_app = get_file(path)
-        i += 1
-        extra_files = input('How many extra files are associated with the project? ')
-        extra_file01 = ''
-        extra_file02 = ''
-        extra_file03 = ''
-        j = 0
-        while j < extra_files:
-            path = input('Tell me the path of this new extra file please: ')
-            if j == 0:
-                extra_file01 = get_file(path)
-                j += 1
-            elif j == 1:
-                extra_file02 = get_file(path)
-                j += 1
-            elif j == 2:
-                extra_file03 = get_file(path)
-                j += 1
-            else:
-                print('I am sorry the app it is not configurated for that many extra files. Changes will have to be made')
+    while ValueError:
+        try:
+            n_projects = int(input('How many projects do you want to add to the database? '))
+        except ValueError:
+            print('Please enter an integer')
+        else:
+            i = 0
+            while i < n_projects:
+                title = input(f'Enter the title of the project {i+1} please: ')
+                description = input('Enter a brief description of your project: ')
+                skills_practiced = input('Would you be so kind to tell me which skills did you practice? ')
+                github_link = input('Now I will need to enter the Github link associated to your project: ')
+                path = input('Now I will need the path of the main app of your project: ')
+                main_app = get_file(path)
+                i += 1
+                extra_files = int(input('How many extra files are associated with the project? '))
+                extra_file01 = ''
+                extra_file02 = ''
+                extra_file03 = ''
+                j = 0
+                while j < extra_files:
+                    path = input(f'Tell me the path of this new extra nº {j+1} file please: ')
+                    if j == 0:
+                        extra_file01 = get_file(path)
+                        j += 1
+                    elif j == 1:
+                        extra_file02 = get_file(path)
+                        j += 1
+                    elif j == 2:
+                        extra_file03 = get_file(path)
+                        j += 1
+                    else:
+                        print('I am sorry the app it is not configurated for that many extra files. Changes will have to be made')
 
-        new_project = Project(title=title, description=description, skills_practiced=skills_practiced,
-                              github_link=github_link, main_app=main_app, extra_file01=extra_file01,
-                              extra_file02=extra_file02, extra_file03=extra_file03)
-        db.session.add(new_project)
-    print('ok we are donde let is commit the data')
+                new_project = Project(title=title, description=description, skills_practiced=skills_practiced,
+                                      github_link=github_link, main_app=main_app, extra_file01=extra_file01,
+                                      extra_file02=extra_file02, extra_file03=extra_file03)
+                db.session.add(new_project)
+        break
+    print('ok we are done let is commit the data')
     db.session.commit()
 
 
 
-    #ask for extra files number and apply a while loop 3 while < 3 get extra_file01, extra_file02.... create those columns
-    #so doing that I'll get all the porjects into my database and I can start workiong on my website
 
 
 
