@@ -54,7 +54,15 @@ def add_project():
                 title = input(f'Enter the title of the project nº{i+1} please: ')
                 description = input('Enter a brief description of your project: ')
                 skills_practiced = input('Would you be so kind to tell me which skills did you practice? ')
-                github_link = input('Now I will need to enter the Github link associated to your project: ')
+                while ValueError:
+                    try:
+                        github_link = input('Enter the Github link associated to your project: ')
+                        if 'https://github.com/' not in github_link or 'https' != github_link[:5]:
+                            raise ValueError('I do not think that is a Github link, please try again')
+                    except ValueError as err:
+                        print(f'{err}')
+                    else:
+                        break
                 path = input('Now I will need the path of the main app of your project: ')
                 main_app = get_file(path)
                 i += 1
@@ -101,37 +109,4 @@ if __name__ == '__main__':
 
     #for p in Project.query:
         #print(p)
-
-
-
-
-
-
-#FUNCTION TO ADD FILES
-
-    #file = open('Projects/old_app.txt', 'a')
-    #filer = open('/Users/danielmulatarancon1/Desktop/TECHDEGREE Projects/Python-Techdegree-Project-04/app.py')
-    #for row in filer:
-        #file.write(row)
-        #break
-    #os.remove('Projects/old_app.txt')
-
-    #string = ''
-    #filerr = open('/Users/danielmulatarancon1/Desktop/TECHDEGREE Projects/Python-Techdegree-Project-04/app.py')
-    #for row in filerr:
-        #string += row
-
-    #print(string)
-    #print(type(string))
-
-    #This is goint to be how  I will access the data and store in as TEXT into the database
-
-
-
-
-
-    # Read and write in a new file that I will save in the database main_app
-    #Store in the database then delete the file in order to use it again
-    #erase or delete file and create again
-
 
