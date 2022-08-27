@@ -81,7 +81,7 @@ def add_project():
                                       github_link=github_link, main_app=main_app, extra_file01=extra_file01,
                                       extra_file02=extra_file02, extra_file03=extra_file03)
                 db.session.add(new_project)
-        break
+            break
     print('ok we are done let is commit the data')
     db.session.commit()
 
