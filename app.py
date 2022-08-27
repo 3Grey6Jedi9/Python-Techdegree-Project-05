@@ -90,13 +90,13 @@ def add_project():
 
 
 if __name__ == '__main__':
-    #db.create_all()
-    #add_project()
+    db.create_all()
+    add_project()
     #app.run(debug=True, port=8000, host='127.0.0.1')
 
 
-    for p in Project.query:
-        print(p)
+    #for p in Project.query:
+        #print(p)
 
 
 
