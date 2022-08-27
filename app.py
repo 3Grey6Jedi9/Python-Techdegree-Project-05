@@ -39,11 +39,11 @@ def get_file(path):
 
 
 
-
+# MANAGE ERRORS
 
 
 def add_project():
-    n_projects = int(input('How many projects do you want to add to the database?'))
+    n_projects = int(input('How many projects do you want to add to the database? '))
     i = 0
     while i < n_projects:
         title = input('Enter the title of the project please: ')
