@@ -30,23 +30,21 @@
         <section id="projects">
             <div id="triangle3"></div>
             <i class="fas fa-file-code"></i>
-            <h2>Projects</h2>
+            <h2>Projects</h2><br>
             <div id="project-list">
 
                 {% for project in projects %}
                     <div id="project1" class="a-project">
                         <h3>{{ project.title }}}</h3>
-                        <a href="#" class="github-btn">
+                        <a href="{{ project.github }}" class="github-btn">
                             <i class="fab fa-github"></i>
                             View on GitHub
-                        </a>
-                        <p>
-                            Pastry wafer chocolate cake caramels.
-                            Gummi bears pudding sugar plum macaroon.
+                        </a><br>
+                        <br><p>
+                            {{ project.description }}
                         </p>
                         <p>
-                            Skills: Pastry wafer chocolate cake caramels.
-                            Gummi bears pudding sugar plum macaroon.
+                            Skills: {{ project.skills }}
                         </p>
                     </div>
                 {% endfor %}
