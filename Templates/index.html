@@ -21,10 +21,10 @@
                   <div class="collapse navbar-collapse" id="navbarContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                       <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" aria-current="page" href="{{ url_for('index') }}">Home</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="http://127.0.0.1:8000/about">About</a>
+                        <a class="nav-link" href="{{ url_for('about') }}">About</a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" href="#skills">Skills</a>
@@ -44,7 +44,7 @@
                         <a class="nav-link" href="#contact">Contact</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="http://127.0.0.1:8000/projects/new">Add Project</a>
+                        <a class="nav-link" href="{{ url_for('new') }}">Add Project</a>
                       </li>
                     </ul>
                   </div>
