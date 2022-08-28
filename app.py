@@ -156,7 +156,7 @@ def add_old_project():
 if __name__ == '__main__':
     db.create_all()
     add_old_project()
-    #app.run(debug=True, port=8000, host='127.0.0.1')
+    app.run(debug=True, port=8000, host='127.0.0.1')
 
 
 
