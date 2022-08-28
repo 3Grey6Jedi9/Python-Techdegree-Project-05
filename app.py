@@ -1,8 +1,17 @@
+import datetime
+
 from flask import render_template, url_for, request
 
 from models import db, Old_Project, app, New_Project
 
 import os
+
+
+
+
+def clean_date(strdate):
+    datep = datetime.datetime.strptime(strdate, '%Y-%m')
+    return datep
 
 
 
@@ -13,33 +22,26 @@ def index():
     return render_template('index.html')
 
 
+
+
 @app.route('/about')
 def about():
     return render_template('about.html')
 
 
 
-L = []
+
 
 @app.route('/projects/new', methods=['GET', 'POST'])
 def new():
-    dict = request.form
-    for value in dict.values():
-        L.append(value)
+    if request.form:
+        new_project = New_Project(title=request.form['title'], date=clean_date(request.form['date']),
+                                   description=request.form['desc'],
+                                   skills=request.form['skills'], github=request.form['github'])
+        db.session.add(new_project)
+        db.session.commit()
+
     return render_template('projectform.html')
-
-
-rform = L
-
-if rform != []:
-
-    new_project = New_Project(title=rform[0], date=rform[1], description=rform[2],
-                              skills=rform[3], github=rform[4])
-    db.session.add(new_project)
-    db.session.commit()
-    print('a new project was added')
-    L = []
-
 
 
 
@@ -48,13 +50,24 @@ if rform != []:
 def detail(id):
     return render_template('detail.html')
 
+
+
+
+
 @app.route('/projects/<id>/edit')
 def edit(id):
     return "EDIT YOUR CAT"
 
+
+
+
+
 @app.route('/projects/<id>/delete')
 def delete(id):
     return "DELETE YOUR CAT"
+
+
+
 
 
 
@@ -64,6 +77,7 @@ def get_file(path):
     for row in file:
         string += row
     return string
+
 
 
 
