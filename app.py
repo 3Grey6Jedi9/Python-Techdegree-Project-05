@@ -1,6 +1,6 @@
 from flask import render_template, url_for, request
 
-from models import db, Portfolio, app, Project
+from models import db, Old_Project, app, New_Project
 
 import os
 
@@ -98,7 +98,7 @@ def add_project():
                     else:
                         print('I am sorry the app it is not configurated for that many extra files. Changes will have to be made')
 
-                new_project = Project(title=title, description=description, skills_practiced=skills_practiced,
+                new_project = Old_Project(title=title, description=description, skills_practiced=skills_practiced,
                                       github_link=github_link, main_app=main_app, extra_file01=extra_file01,
                                       extra_file02=extra_file02, extra_file03=extra_file03)
                 db.session.add(new_project)
@@ -124,6 +124,6 @@ if __name__ == '__main__':
     app.run(debug=True, port=8000, host='127.0.0.1')
 
 
-    #for p in Project.query:
+    #for p in Old_Project.query:
         #print(p.title)
 
