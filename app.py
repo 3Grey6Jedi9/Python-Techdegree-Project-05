@@ -19,24 +19,41 @@ def about():
 
 
 
+L = []
+
 @app.route('/projects/new', methods=['GET', 'POST'])
 def new():
-    new_project = New_Project(title=request.form['title'], date=request.form['date'], description=request.form['description'],
-                              skills=request.form['skills-list'], github=request.form['github'])
-    print(request.form)
-    print(request.form['title'])
+    dict = request.form
+    for value in dict.values():
+        L.append(value)
     return render_template('projectform.html')
 
+
+rform = L
+
+if rform != []:
+
+    new_project = New_Project(title=rform[0], date=rform[1], description=rform[2],
+                              skills=rform[3], github=rform[4])
+    db.session.add(new_project)
+    db.session.commit()
+    print('a new project was added')
+    L = []
+
+
+
+
+
 @app.route('/projects/<id>')
-def detail():
+def detail(id):
     return render_template('detail.html')
 
 @app.route('/projects/<id>/edit')
-def edit():
+def edit(id):
     return "EDIT YOUR CAT"
 
 @app.route('/projects/<id>/delete')
-def delete():
+def delete(id):
     return "DELETE YOUR CAT"
 
 
@@ -126,6 +143,4 @@ if __name__ == '__main__':
     app.run(debug=True, port=8000, host='127.0.0.1')
 
 
-    #for p in Old_Project.query:
-        #print(p.title)
 
