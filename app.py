@@ -19,8 +19,9 @@ def clean_date(strdate):
 
 @app.route('/')
 def index():
-    projects = New_Project.query.all()
-    return render_template('index.html', projects=projects)
+    old_projects = Old_Project.query.all()
+    new_projects = New_Project.query.all()
+    return render_template('index.html', old_projects=old_projects, new_projects=new_projects)
 
 
 
@@ -83,7 +84,7 @@ def get_file(path):
 
 
 
-def add_project():
+def add_old_project():
     while ValueError:
         try:
             n_projects = int(input('How many projects do you want to add to the database? '))
@@ -154,8 +155,8 @@ def add_project():
 
 if __name__ == '__main__':
     db.create_all()
-    #add_project()
-    app.run(debug=True, port=8000, host='127.0.0.1')
+    add_old_project()
+    #app.run(debug=True, port=8000, host='127.0.0.1')
 
 
 
