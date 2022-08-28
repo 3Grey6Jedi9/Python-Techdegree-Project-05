@@ -21,6 +21,8 @@ def about():
 
 @app.route('/projects/new', methods=['GET', 'POST'])
 def new():
+    new_project = New_Project(title=request.form['title'], date=request.form['date'], description=request.form['description'],
+                              skills=request.form['skills-list'], github=request.form['github'])
     print(request.form)
     print(request.form['title'])
     return render_template('projectform.html')
