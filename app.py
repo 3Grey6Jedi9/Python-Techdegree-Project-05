@@ -19,8 +19,9 @@ def about():
 
 
 
-@app.route('/projects/new')
+@app.route('/projects/new', methods=['GET','POST'])
 def new():
+    print(request.form)
     return render_template('projectform.html')
 
 @app.route('/projects/<id>')
