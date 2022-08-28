@@ -1,5 +1,3 @@
-#Use a form to add the rest of my projects atache files and submmit them POST
-
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 import datetime
