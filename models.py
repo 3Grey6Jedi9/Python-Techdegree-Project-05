@@ -11,7 +11,7 @@ db = SQLAlchemy(app)
 
 
 
-class Project(db.Model):
+class Old_Project(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column('Title', db.String())
     description = db.Column('Description', db.Text())
@@ -23,7 +23,7 @@ class Project(db.Model):
     extra_file03 = db.Column('Extra File 03', db.Text())
 
     def __repr__(self):
-        return f'''< Project (Title: {self.title}
+        return f'''< Old_Project (Title: {self.title}
         Description: {self.description}
         Skills Practiced: {self.skills_practiced}
         Github Link: {self.github_link}
@@ -34,13 +34,17 @@ class Project(db.Model):
 
 
 
-class Portfolio(db.Model):
+class New_Project(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    created = db.Column('Created', db.DateTime, default=datetime.datetime.now)
-    name = db.Column('Name', db.String())
+    title = db.Column('Title', db.String())
+    date = db.Column('Created', db.DateTime, default=datetime.datetime.now)
+    description = db.Column('Description', db.Text())
+    skills = db.Column('Skills', db.String())
+    github = db.Column('GitHub Link', db.String())
 
     def __repr__(self):
-        return f'''< Portfolio (Name: {self.name})'''
+        return f'''< New_Project (Title: {self.title}, Created: {self.date}, Description: {self.description},
+          Skills: {self.skills}, GitHub: {self.github})'''
 
 
 
