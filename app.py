@@ -12,7 +12,12 @@ import os
 def index():
     return render_template('index.html')
 
-# Using flask in the htlm I have to display the content
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+
 
 @app.route('/projects/new')
 def new():
