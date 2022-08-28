@@ -19,7 +19,8 @@ def clean_date(strdate):
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    projects = New_Project.query.all()
+    return render_template('index.html', projects=projects)
 
 
 
