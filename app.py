@@ -12,13 +12,15 @@ import os
 def index():
     return render_template('index.html')
 
+# Using flask in the htlm I have to display the content
+
 @app.route('/projects/new')
 def new():
-    return "NEW CAT"
+    return render_template('projectform.html')
 
 @app.route('/projects/<id>')
 def detail():
-    return "DETAILS"
+    return render_template('detail.html')
 
 @app.route('/projects/<id>/edit')
 def edit():
@@ -38,7 +40,6 @@ def get_file(path):
     return string
 
 
-# MANAGE ERRORS
 
 
 def add_project():
@@ -112,10 +113,10 @@ def add_project():
 
 if __name__ == '__main__':
     db.create_all()
-    add_project()
-    #app.run(debug=True, port=8000, host='127.0.0.1')
+    #add_project()
+    app.run(debug=True, port=8000, host='127.0.0.1')
 
 
     #for p in Project.query:
-        #print(p)
+        #print(p.title)
 
