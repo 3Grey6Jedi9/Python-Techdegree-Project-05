@@ -1,6 +1,6 @@
 import datetime
 
-from flask import render_template, url_for, request
+from flask import render_template, url_for, request, redirect
 
 from models import db, Old_Project, app, New_Project
 
@@ -40,7 +40,7 @@ def new():
                                    skills=request.form['skills'], github=request.form['github'])
         db.session.add(new_project)
         db.session.commit()
-
+        return redirect(url_for('index'))
     return render_template('projectform.html')
 
 
