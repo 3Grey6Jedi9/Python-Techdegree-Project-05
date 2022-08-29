@@ -33,34 +33,18 @@
             <h2>Projects</h2><br>
             <div id="project-list">
 
-                {% for old_project in old_projects %}
+                {% for project in projects %}
                     <div id="project1" class="a-project">
-                        <h3><a href="{{ url_for('detail', id=old_project.id) }}">{{ old_project.title }}</a></h3>
-                        <a href="{{ old_project.github_link }}" class="github-btn">
+                        <h3><a href="{{ url_for('detail', id=project.id) }}">{{ project.title }}</a></h3>
+                        <a href="{{ project.github }}" class="github-btn">
                             <i class="fab fa-github"></i>
                             View on GitHub
                         </a><br>
                         <br><p>
-                            {{ old_project.description }}
+                            {{ project.description }}
                         </p>
                         <p>
-                            Skills: {{ old_project.skills_practiced }}
-                        </p>
-                    </div>
-                {% endfor %}
-
-                {% for new_project in new_projects %}
-                    <div id="project1" class="a-project">
-                        <h3>{{ new_project.title }}}</h3>
-                        <a href="{{ new_project.github }}" class="github-btn">
-                            <i class="fab fa-github"></i>
-                            View on GitHub
-                        </a><br>
-                        <br><p>
-                            {{ new_project.description }}
-                        </p>
-                        <p>
-                            Skills: {{ new_project.skills }}
+                            Skills: {{ project.skills }}
                         </p>
                     </div>
                 {% endfor %}
