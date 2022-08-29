@@ -59,7 +59,8 @@ def detail(id):
 
 @app.route('/projects/<id>/edit')
 def edit(id):
-    return "EDIT YOUR CAT"
+    project = Project.query.get(id)
+    return render_template('edit.html', project=project)
 
 
 
