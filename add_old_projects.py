@@ -12,6 +12,7 @@ def get_file(path):
 
 
 
+# I need to add the date (when was the project created
 
 def add_old_project():
     while ValueError:
