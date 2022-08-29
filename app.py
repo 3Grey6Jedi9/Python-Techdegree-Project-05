@@ -50,7 +50,7 @@ def new():
 
 @app.route('/projects/<id>')
 def detail(id):
-    project = Project.query.get(id)
+    project = Project.query.get_or_404(id)
     return render_template('detail.html', project=project)
 
 
@@ -59,7 +59,7 @@ def detail(id):
 
 @app.route('/projects/<id>/edit', methods=['GET', 'POST'])
 def edit(id):
-    project = Project.query.get(id)
+    project = Project.query.get_or_404(id)
     if request.form:
         project.title=request.form['title']
         project.date=clean_date(request.form['date'])
@@ -77,7 +77,7 @@ def edit(id):
 
 @app.route('/projects/<id>/delete')
 def delete(id):
-    project = Project.query.get(id)
+    project = Project.query.get_or_404(id)
     db.session.delete(project)
     db.session.commit()
     return redirect(url_for('index'))
