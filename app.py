@@ -77,7 +77,10 @@ def edit(id):
 
 @app.route('/projects/<id>/delete')
 def delete(id):
-    return "DELETE YOUR CAT"
+    project = Project.query.get(id)
+    db.session.delete(project)
+    db.session.commit()
+    return redirect(url_for('index'))
 
 
 
