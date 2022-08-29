@@ -3,12 +3,17 @@
 {% block content %}
 
         <section class="header">
-            <h1>{{ old_project.title }} {{ new_project.title }}</h1>
+
+                <h1>{{ project.title }} </h1>
+
             <p></p>
-            <a href="{{ old_project.github_link }}" href="{{ new_project.github }}" class="github-btn">
-                <i class="fab fa-github"></i>
-                View on GitHub
-            </a>
+
+                <a href="{{ project.github }}" class="github-btn">
+                    <i class="fab fa-github"></i>
+                    View on GitHub
+                </a>
+
+
             <ul class="project-skills">
                 <div>
                     <li>Catching exceptions</li>
@@ -23,9 +28,8 @@
             <h2>Description</h2>
             <p>
 
-                {{ old_project.description }}
+                {{ project.description }}
 
-                {{ new_project.description }}
 
             </p>
             <div id="triangle6"></div>
