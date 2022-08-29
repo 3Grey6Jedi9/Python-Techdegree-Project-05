@@ -50,9 +50,7 @@ def new():
 
 @app.route('/projects/<id>')
 def detail(id):
-    old_projects = Old_Project.query.all()
-    new_projects = New_Project.query.all()
-    return render_template('detail.html', old_projects=old_projects, new_projects=new_projects)
+    return render_template('detail.html')
 
 
 
