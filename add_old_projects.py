@@ -5,9 +5,11 @@ from models import db, Project, app
 
 
 
+
 def clean_date(strdate):
     datep = datetime.datetime.strptime(strdate, '%Y-%m')
     return datep
+
 
 
 
@@ -21,7 +23,8 @@ def get_file(path):
 
 
 
-# I need to add the date (when was the project created
+
+
 
 def add_old_project():
     while ValueError:
