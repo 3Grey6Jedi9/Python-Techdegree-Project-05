@@ -63,6 +63,11 @@ def detail(id):
 
 @app.route('/projects/<id>/edit', methods=['GET', 'POST'])
 def edit(id):
+    def timef(datep):
+
+        date = datetime.datetime.strftime(datep, '%Y-%m')
+        return date
+
     projects = Project.query.all()
     project = Project.query.get_or_404(id)
     if request.form:
@@ -72,9 +77,10 @@ def edit(id):
         project.skills=request.form['skills']
         project.github=request.form['github']
 
+
         db.session.commit()
         return redirect(url_for('index'))
-    return render_template('edit.html', project=project, projects=projects)
+    return render_template('edit.html', project=project, projects=projects, my_function=timef)
 
 
 
