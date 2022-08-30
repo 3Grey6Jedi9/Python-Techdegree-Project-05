@@ -62,6 +62,7 @@ def detail(id):
 
 @app.route('/projects/<id>/edit', methods=['GET', 'POST'])
 def edit(id):
+    projects = Project.query.all()
     project = Project.query.get_or_404(id)
     if request.form:
         project.title=request.form['title']
@@ -72,7 +73,7 @@ def edit(id):
 
         db.session.commit()
         return redirect(url_for('index'))
-    return render_template('edit.html', project=project)
+    return render_template('edit.html', project=project, projects=projects)
 
 
 
