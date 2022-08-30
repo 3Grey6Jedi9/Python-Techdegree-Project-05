@@ -1,8 +1,8 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-        <section class="header">
-            <h1>New Project</h1>
+        <section class="header"><br><br><br>
+            <img src ="{{ url_for('static', filename='Images/new_project.jpg') }}" alt="New Project" width="600" height="300">
         </section>
         <section id="form">
             <form action="{{ url_for('new') }}" method="post">
@@ -12,8 +12,8 @@
                 <input type="month" name="date" id="date" required>
                 <label for="description">Description</label>
                 <textarea name="desc" id="description" cols="30" rows="20" placeholder="Description" required></textarea>
-                <label for="skills-list" id="skills-label">Skills</label>
-                <p>Separate each skill by a comma</p>
+                <br><br><label for="skills-list" id="skills-label">Skills</label>
+                <p><br>Separate each skill by a comma</p>
                 <textarea name="skills" id="skills-list" cols="30" rows="10" placeholder="Skill, Skill" required></textarea>
                 <label for="github">GitHub Link</label>
                 <input type="url" name="github" id="github" placeholder="Link to the repo" required>
@@ -27,21 +27,17 @@
             <div class="socials">
                 <!--Delete any you don't use-->
                 <!--Icons from FontAwesome.com/icons-->
-                <a href="">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="">
+
+                <a href=https://github.com/3Grey6Jedi9">
                     <i class="fab fa-github"></i>
                 </a>
-                <a href="">
+                <a href="https://www.linkedin.com/in/daniel-mula-tarancón-974233b1/">
                     <i class="fab fa-linkedin"></i>
                 </a>
-                <a href="">
+                <a href="https://www.instagram.com/danieltarancon33/">
                     <i class="fab fa-instagram"></i>
                 </a>
-                <a href="">
-                    <i class="fab fa-tiktok"></i>
-                </a>
+
             </div>
             <div class="treehouse">
                 <p>
