@@ -2,7 +2,8 @@
 
 {% block content %}
         <section class="header"><br><br><br>
-            <img src ="{{ url_for('static', filename='Images/new_project.jpg') }}" alt="New Project" width="600" height="300">
+            <h1>I've been working hard so let's add a new project!</h1>
+            <img src ="{{ url_for('static', filename='Images/new_project.jpeg') }}" alt="New Project" width="600" height="300">
         </section>
         <section id="form">
             <form action="{{ url_for('new') }}" method="post">
