@@ -3,6 +3,15 @@ import datetime
 from models import db, Project, app
 
 
+
+
+def clean_date(strdate):
+    datep = datetime.datetime.strptime(strdate, '%Y-%m')
+    return datep
+
+
+
+
 def get_file(path):
     string = ''
     file = open(path)
@@ -24,6 +33,13 @@ def add_old_project():
             i = 0
             while i < n_projects:
                 title = input(f'Enter the title of the project nº{i + 1} please: ')
+                while ValueError:
+                    date = input('Enter the date in which the project was created using the following format: 2022-01 (year-month): ')
+                    try:
+                        if datetime.datetime.strptime(date,'%Y-%m'):
+                            break
+                    except ValueError:
+                        print('Please enter the date using the given format')
                 description = input('Enter a brief description of your project: ')
                 skills_practiced = input('Would you be so kind to tell me which skills did you practice? ')
                 while ValueError:
@@ -64,7 +80,7 @@ def add_old_project():
                         print(
                             'I am sorry the app it is not configurated for that many extra files. Changes will have to be made')
 
-                new_project = Project(title=title, description=description, skills=skills_practiced,
+                new_project = Project(title=title, date=clean_date(date), description=description, skills=skills_practiced,
                                       github=github_link, main_app=main_app, extra_file01=extra_file01,
                                       extra_file02=extra_file02, extra_file03=extra_file03)
                 db.session.add(new_project)
