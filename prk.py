@@ -1,6 +1,9 @@
-def ne():
-    return 9, 10
+import datetime
 
-a = ne()[1]
+def timef(datep):
+    date = datetime.datetime.strftime(datep, '%B-%Y')
+    return date
 
-print(a)
+d = timef(datetime.datetime.now())
+
+print(d)
