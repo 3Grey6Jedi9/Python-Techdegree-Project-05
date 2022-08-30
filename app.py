@@ -50,6 +50,7 @@ def new():
 
 
 
+
 @app.route('/projects/<id>')
 def detail(id):
     projects = Project.query.all()
@@ -85,6 +86,8 @@ def delete(id):
     db.session.delete(project)
     db.session.commit()
     return redirect(url_for('index'))
+
+
 
 
 
