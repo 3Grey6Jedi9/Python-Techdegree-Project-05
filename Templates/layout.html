@@ -15,7 +15,7 @@
      <section class="navigation">
             <nav class="navbar navbar-expand-lg">
                 <div class="container-fluid">
-                  <a class="navbar-brand" href="#">Student Name</a>
+                  <a class="navbar-brand" href="https://teamtreehouse.com/profiles/danielmulatarancon">Daniel Mula Tarancón</a>
                   <button class="toggle" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fas fa-bars"></i>
                   </button>
@@ -35,10 +35,9 @@
                           Projects
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <li><a class="dropdown-item" href="#">Project 1</a></li>
-                          <li><a class="dropdown-item" href="#project2">Project 2</a></li>
-                          <li><a class="dropdown-item" href="#project3">Project 3</a></li>
-                          <li><a class="dropdown-item" href="#project4">Project 4</a></li>
+                          {% for project in projects %}
+                          <li><a class="dropdown-item" href="http://127.0.0.1:8000/projects/{{ project.id }}">{{ project.title }}</a></li>
+                          {% endfor %}
                         </ul>
                       </li>
                       <li class="nav-item">
