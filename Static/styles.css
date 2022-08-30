@@ -95,6 +95,9 @@ Header  - Homepage
 
 
 
+
+
+
 .header h1{
     font-size: 32px;
     font-weight: bold;
@@ -683,3 +686,4 @@ Media Queries
         width: 530px;
     }
 }
+
