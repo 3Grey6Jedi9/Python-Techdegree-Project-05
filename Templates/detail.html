@@ -4,7 +4,7 @@
 
         <section class="header">
 
-                <h1>{{ project.title }} </h1>
+                <br><h1>{{ project.title }} </h1><br>
 
             <p></p>
 
@@ -14,25 +14,25 @@
                 </a>
 
 
-            <ul class="project-skills">
-                <div>
-                    <li>Catching exceptions</li>
-                    <li>Creating a loop</li>
-                    <li>Accepting user input</li>
-                    <li>Conditional statements</li>
+            <br><br><ul class="project-skills">SKILLS
+                <br><br><div>
+
+                    <li>{{ project.skills }}</li>
+
+
                 </div>
             </ul>
         </section>
         <section id="project-desc">
             <div id="triangle5"></div>
-            <h2>Description</h2>
+            <br><h2>Description</h2>
             <p>
 
                 {{ project.description }}
 
 
-            </p>
-            <h5>Date of creation: {{ project.date }}</h5><br>
+            </p><br>
+            <h6>Date of creation: {{ project.date }}</h6><br>
 
             <div id="triangle6"></div>
         </section>
@@ -40,33 +40,27 @@
             <a href="{{ url_for('edit', id=project.id) }}">
                 <i class="fas fa-edit"></i>
                 Edit
-            </a>
+            </a>&#160&#160&#160&#160&#160&#160&#160
             <a href="{{ url_for('delete', id=project.id) }}">
                 <i class="far fa-trash-alt"></i>
                 Delete
             </a>
-        </section>
+        </section><br><br>
         <section class="footer">
             <div class="socials">
                 <!--Delete any you don't use-->
                 <!--Icons from FontAwesome.com/icons-->
-                <a href="">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="">
+                <a href=https://github.com/3Grey6Jedi9">
                     <i class="fab fa-github"></i>
                 </a>
-                <a href="">
+                <a href="https://www.linkedin.com/in/daniel-mula-tarancón-974233b1/">
                     <i class="fab fa-linkedin"></i>
                 </a>
-                <a href="">
+                <a href="https://www.instagram.com/danieltarancon33/">
                     <i class="fab fa-instagram"></i>
                 </a>
-                <a href="">
-                    <i class="fab fa-tiktok"></i>
-                </a>
             </div>
-            <div class="treehouse">
+            <br><div class="treehouse">
                 <p>
                     Front-End Designed by 
                     <a href="https://teamtreehouse.com">
