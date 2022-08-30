@@ -27,7 +27,8 @@ def index():
 
 @app.route('/about')
 def about():
-    return render_template('about.html')
+    projects = Project.query.all()
+    return render_template('about.html', projects=projects)
 
 
 
@@ -35,6 +36,7 @@ def about():
 
 @app.route('/projects/new', methods=['GET', 'POST'])
 def new():
+    projects = Project.query.all()
     if request.form:
         new_project = Project(title=request.form['title'], date=clean_date(request.form['date']),
                                    description=request.form['desc'],
@@ -43,15 +45,16 @@ def new():
         db.session.add(new_project)
         db.session.commit()
         return redirect(url_for('index'))
-    return render_template('projectform.html')
+    return render_template('projectform.html', projects=projects)
 
 
 
 
 @app.route('/projects/<id>')
 def detail(id):
+    projects = Project.query.all()
     project = Project.query.get_or_404(id)
-    return render_template('detail.html', project=project)
+    return render_template('detail.html', project=project, projects=projects)
 
 
 
@@ -87,7 +90,6 @@ def delete(id):
 @app.errorhandler(404)
 def not_found(error):
     return render_template('404.html', msg=error), 404
-
 
 
 
