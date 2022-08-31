@@ -16,8 +16,9 @@
 
             <br><br><ul class="project-skills">SKILLS
                 <br><br><div>
-
-                    <li>{{ project.skills }}</li>
+                {% for skill in project.skills.split(',') %}
+                    <li>{{ skill }}</li>
+                {% endfor %}
 
 
                 </div>
