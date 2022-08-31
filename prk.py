@@ -1,9 +1,6 @@
-import datetime
 
-def timef(datep):
-    date = datetime.datetime.strftime(datep, '%B-%Y')
-    return date
 
-d = timef(datetime.datetime.now())
+L = [1,2,3]
 
-print(d)
+for i in L:
+    print(i)
